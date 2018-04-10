@@ -1,0 +1,25 @@
+<div class="container color-dark">
+  <div class="col">
+    <p>Add another activity</p>
+  </div>
+  <div class="col">
+    <p>Your To-Do list ( {{ todoItemsCount }} )</p>
+  </div>
+</div>
+<div class="container color-light" [@plans]="plans.length">
+  <div class="col">
+    <p class="sm">You can add here your To-Do list. so what are you planning for today?</p>
+    <form>
+      <input type="text" name="item" class="txt" placeholder="I want to..." [(ngModel)]="todoText" >
+      <input type="submit"class="btn" value="{{ addButton }}" (click)="addTodoPlan()">
+    </form>
+  </div>
+  <div class="col">
+    <p class="life-container" *ngFor="let plan of plans; let i = index;" [ngClass]="{'life-container-done': checkDone }">
+      <input type="submit" class="deletePlan"  value="Delete x" (click)="deleteTodoPlan(i)">
+      {{ plan }}</p>
+
+
+  </div>
+
+</div>
